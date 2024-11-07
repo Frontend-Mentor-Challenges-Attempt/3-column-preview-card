@@ -1,0 +1,118 @@
+:root {
+  --card-bg-1: #e38826;
+  --card-bg-2: #006970;
+  --card-bg-3: #004241;
+  --white: #f2f2f2;
+  --grey: #ffffffbf;
+}
+
+html {
+  font-family: "Lexend Deca", serif;
+  font-size: 15px;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  height: 100vh;
+  display: grid;
+  gap: 10px;
+  grid-template-rows: 3fr 1fr;
+  align-items: center;
+  justify-items: center;
+}
+
+.card-container {
+  grid-row: 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 270px));
+  grid-template-rows: repeat(4, auto);
+  color: var(--grey);
+}
+
+article > * {
+  margin: 0;
+  padding: 0;
+}
+
+article {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 4;
+  background-color: var(--bg);
+  padding: 20px;
+  gap: 2rem;
+
+  h3 {
+    font-family: "Big Shoulders Display", sans-serif;
+    font-size: 1.5rem;
+    color: var(--white);
+  }
+
+  button {
+    appearance: none;
+    padding: 10px 0px;
+    border-radius: 50px;
+    background-color: var(--white);
+    border: 1px solid var(--white);
+    color: var(--bg);
+    max-width: 140px;
+    margin-top: 3rem;
+    transition: all 0.3s ease-in-out;
+    transition-property: background-color, color, transform;
+  }
+
+  button:hover {
+    background: transparent;
+    color: var(--white);
+    cursor: pointer;
+    transform: scale(1.05);
+  }
+}
+
+article:first-child {
+  border-radius: 4px 0 0 4px;
+}
+
+article:last-child {
+  border-radius: 0 4px 4px 0;
+}
+
+footer {
+  grid-row: 2;
+  text-align: center;
+}
+
+@media (max-width: 1000px) {
+  .card-container {
+    grid-template-columns: repeat(3, minmax(auto, 240px));
+  }
+}
+
+@media (max-width: 760px) {
+  .card-container {
+    grid-template-columns: repeat(3, minmax(auto, 200px));
+  }
+}
+
+@media (max-width: 520px) {
+  .card-container {
+    grid-template-columns: minmax(auto, 230px);
+
+    article {
+      gap: 1rem;
+      button {
+        margin-top: 1rem;
+        max-width: 125px;
+      }
+    }
+
+    article:first-child {
+      border-radius: 4px 4px 0 0;
+    }
+
+    article:last-child {
+      border-radius: 0 0 4px 4px;
+    }
+  }
+}
